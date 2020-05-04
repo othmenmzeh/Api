@@ -1,0 +1,7 @@
+{% for class,messages in app.session.getFlashBag.all %}
+    {% for msg in messages %}
+        <div class="alert alert-dismissible alert-{{ class }}">
+            <button class="close" type="button" data-dismiss="alert">×</button>{{ msg }}
+        </div>
+    {% endfor %}
+{% endfor %}

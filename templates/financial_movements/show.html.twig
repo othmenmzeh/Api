@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ "Details of financial movement"|trans }}{% endblock %}
+{% block home_title %}
+    <div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+{% block breadcrumb %}
+    &nbsp;/&nbsp;
+    <li>
+        <a href="{{ path('financialMovements') }}">{{ "history of financial movements"|trans }}</a>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <section class="invoice">
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <h2 class="page-header"><i
+                                        class="fas fa-award"></i> {{ " Details financial Movement"|trans }}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="invoice-info col-6">
+                            <div>
+                                <address><b>
+                                        {{ 'Id'|trans }} : </b> {{ financialMovement.id }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>
+                                        {{ 'BookingDate'|trans }}
+                                        : </b>
+                                    {{ financialMovement.bookingDate|date('Y-m-d') }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>
+                                        {{ 'ValueDate'|trans }}
+                                        : </b> {{ financialMovement.valueDate|date('Y-m-d') }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>
+                                        {{ 'OrderingAccountNumber'|trans }}
+                                        :</b> {{ financialMovement.orderingAccountNumber }}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'OrderingCustomer'|trans }}
+                                        : </b>{{ financialMovement.orderingCustomer }}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'OrderingInstitution'|trans }}
+                                        : </b> {{ financialMovement.orderingInstitution }}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'OrderingAmount'|trans }}
+                                        :</b>
+                                    {% if financialMovement.orderingAmount %}
+                                        {{ financialMovement.orderingAmount.value }} {{ financialMovement.orderingAmount.currency }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'BeneficiaryAccountNumber'|trans }}
+                                        : </b>{{ financialMovement.beneficiaryAccountNumber }}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'BeneficiaryCustomer'|trans }}
+                                        : </b> {{ financialMovement.beneficiaryCustomer }}
+                                </address>
+                            </div>
+                        </div>
+
+                        <div class="invoice-info col-6">
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'BeneficiaryInstitution'|trans }}
+                                        : </b>{{ financialMovement.beneficiaryInstitution }}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'BeneficiaryAmount'|trans }}
+                                        :</b>
+                                    {% if financialMovement.beneficiaryAmount %}
+                                        {{ financialMovement.beneficiaryAmount.value }} {{ financialMovement.beneficiaryAmount.currency }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'RemittanceInformation'|trans }}
+                                        : </b>{{ financialMovement.remittanceInformation }}
+                                </address>
+                            </div>
+                            <div>
+                                <address>
+                                    <b>
+                                        {{ 'ChargesDetails'|trans }}
+                                        :</b> {{ financialMovement.chargesDetails }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>
+                                        {{ 'ExchangeRate'|trans }}
+                                        : </b>{{ financialMovement.exchangeRate }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>
+                                        {{ 'TypeLabel'|trans }}
+                                        :</b> {{ financialMovement.typeLabel }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>
+                                        {{ 'InternalReference'|trans }}
+                                        : </b>{{ financialMovement.internalReference }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>
+                                        {{ 'Description'|trans }}
+                                        :</b> {{ financialMovement.description }}
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}

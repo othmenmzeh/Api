@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>{% block title %}{{ "IbanFirst"|trans }}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpg" href="https://api.ibanfirst.com/img/favicon.png?3137">
+    {% block meta %}{% endblock %}
+
+    <!-- Main CSS-->
+    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" type="text/css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fontawesome/css/all.min.css')}}">
+
+
+    <link href="{{ asset('assets/css/jquery-ui.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/jquery.dataTables.yadcf.css') }}" rel="stylesheet" type="text/css">
+    {% block stylesheets %}{% endblock %}
+
+</head>
+<body class="app sidebar-mini rtl">
+<!-- Navbar-->
+<header class="app-header"><a class="app-header__logo">
+        <img style="height: 35px; width: auto;"  alt="courtier assurance credit" src="{{ asset('assets/images/logo.png') }}" id="logo">
+    </a>
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                    aria-label="Hide Sidebar"><i class="fa fa-bars fa-2x"></i></a>
+    <!-- Navbar Right Menu-->
+    {% include 'layout/user-sidebar.html.twig' %}
+</header>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+{% include 'layout/sidebar.html.twig' %}
+<main class="app-content">
+    <div class="app-title">
+        {% block home_title %}
+            <div>
+                <h1><i class="fa fa-dashboard"></i> </h1>
+            </div>
+        {% endblock %}
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><a href="/" <i class="fa fa-home fa-lg"></i></a></li>
+            {% block breadcrumb %}{% endblock %}
+        </ul>
+    </div>
+    {% include "layout/alert.html.twig" %}
+    {% block body %}{% endblock %}
+
+</main>
+
+<script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/plugins/pace.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/plugins/dataTables.bootstrap.min.js') }}"></script>
+
+{% block javascripts %}
+
+{% endblock %}
+</body>
+<footer style="text-align: center;background-color: #003320;
+    color: white;">
+    &copy; Copyright {{ "now"|date("Y") }} by OMZEH
+</footer>
+
+</html>

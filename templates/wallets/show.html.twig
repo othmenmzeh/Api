@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ "List of Wallets"|trans }}{% endblock %}
+{% block home_title %}
+    <div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+{% block breadcrumb %}
+    &nbsp;/&nbsp;
+    <li>
+        <a href="{{ path('wallets') }}">{{ "Liste of wallets"|trans }}</a>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <section class="invoice">
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <h2 class="page-header"><i
+                                        class="fas fa-award"></i> {{ " Details wallet"|trans }}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="invoice-info col-6">
+                            <div>
+                                <address><b>{{ 'Id' |trans }} :</b> {{ wallet.id }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>{{ 'Currency' |trans }} : </b>{{ wallet.currency }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>{{ 'AccountNumber' |trans }} : </b>{{ wallet.accountNumber }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>{{ 'Tag' |trans }}
+                                        : </b>{{ wallet.tag }}
+                                </address>
+                            </div>
+                            <div>
+                                <address><b>{{ 'Status' |trans }}
+                                        : </b>{{ wallet.status }}
+                                </address>
+                            </div>
+                            <h5 class="page-header">{{ "CorrespondentBank"|trans }}
+                            </h5>
+                            {% if wallet.correspondentBank %}
+                                <div>
+                                    <address><b>{{ 'Bic' |trans }} : </b>{{ wallet.correspondentBank.bic }}
+                                    </address>
+                                </div>
+                                <div>
+                                    <address><b>{{ 'Name' |trans }} : </b>{{ wallet.correspondentBank.name }}
+                                    </address>
+                                </div>
+                                <div>
+                                    <address><b>{{ 'Address' |trans }}
+                                            : </b>{{ wallet.correspondentBank.address.street }}
+                                        - {{ wallet.correspondentBank.address.postCode }}
+                                        - {{ wallet.correspondentBank.address.city }}
+
+
+                                    </address>
+                                </div>
+                            {% else %}
+                                <div>
+                                    <address><b>{{ 'Not resigned' |trans }}
+                                        </b>
+
+                                    </address>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="invoice-info col-6">
+                            <h5 class="page-header"> {{ "HolderBank "|trans }}
+                            </h5>
+                            {% if wallet.holderBank %}
+                                <div>
+                                    <address><b>
+                                            {{ 'Bic'|trans }} : </b> {{ wallet.holderBank.bic }}
+                                    </address>
+                                </div>
+                                <div>
+                                    <address><b>
+                                            {{ 'Name'|trans }} :</b> {{ wallet.holderBank.name }}
+                                    </address>
+                                </div>
+                                <div>
+                                    <address><b>{{ 'Address'|trans }}
+                                            :</b> {{ wallet.holderBank.address.street }}
+                                        - {{ wallet.holderBank.address.postCode }}
+                                        - {{ wallet.holderBank.address.city }}
+                                    </address>
+                                </div>
+                                <div>
+                                    <address><b>{{ 'ClearingCodeType'|trans }}
+                                            : </b> {{ wallet.holderBank.clearingCodeType }}</address>
+                                </div>
+                                <div>
+                                    <address>
+                                        <b>{{ 'ClearingCode'|trans }}
+                                            :</b> {{ wallet.holderBank.clearingCode }}
+                                    </address>
+                                </div>
+                            {% else %}
+                                <div>
+                                    <address><b>{{ 'Not resigned' |trans }}
+                                        </b>
+
+                                    </address>
+                                </div>
+                            {% endif %}
+
+                            <h5 class="page-header">
+                                {{ " Holder"|trans }}
+                            </h5>
+                            {% if wallet.holder %}
+                                <div>
+                                    <address><b>
+                                            {{ 'Name'|trans }} :</b> {{ wallet.holder.name }}
+                                    </address>
+                                </div>
+                                <div>
+                                    <address><b>
+                                            {{ 'Type'|trans }} :</b> {{ wallet.holder.type }}
+                                    </address>
+                                </div>
+                                <div>
+                                    <address><b>
+                                            {{ 'Address'|trans }} :</b>
+                                        {{ wallet.holder.address.street }}
+                                        - {{ wallet.holder.address.postCode }}
+                                        - {{ wallet.holder.address.city }}
+                                    </address>
+                                </div>
+                            {% else %}
+                                <div>
+                                    <address><b>{{ 'Not resigned' |trans }}</b>
+                                    </address>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}
